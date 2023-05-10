@@ -21,4 +21,4 @@ function list () {
     .then(reduceTheaters)
 }
 
-module.exports = { list }
+module.exports = {    list}

@@ -5,17 +5,22 @@ const cors = require("cors");
 
 const errorHandler = require("./errors/errorHandler")
 const notFound = require("./errors/notFound");
-//const moviesRouter = require("./movies/movies.router");
-//const reviewsRouter = require("./reviews/reviews.router");
+const moviesRouter = require("./movies/movies.router");
+const reviewsRouter = require("./reviews/reviews.router");
 const theatersRouter = require("./theaters/theaters.router");
 
 app.use(cors());
 app.use(express.json());
 
-//app.use("/movies", moviesRouter);
-//app.use("/reviews", reviewsRouter);
+app.use("/movies", moviesRouter);
+app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
 
+// app.use((error, req, res) => {
+//   console.log(error.message, error.status, '+++++++++++++++')
+//   const { status, message} = error
+//   res.status(status).json(message)
+// })
 app.use(notFound);
 app.use(errorHandler)
 

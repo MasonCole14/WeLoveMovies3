@@ -1,32 +1,28 @@
-// Update with your config settings.
-
 const path = require("path");
+
 require("dotenv").config();
+
 const {
-   DATABASE_URL  = "postgres://rfpskcvy:OCZ6QWu9-faNR3zULQ3MrIu_SrDjttRD@isilo.db.elephantsql.com/rfpskcvy",
-} = process.env; 
+  DATABASE_URL = "postgres://rfpskcvy:OCZ6QWu9-faNR3zULQ3MrIu_SrDjttRD@isilo.db.elephantsql.com/rfpskcvy",
+} = process.env;
 
 module.exports = {
-
   development: {
     client: "postgresql",
     connection: DATABASE_URL,
-    pool: { min: 0, max: 5},
-      migrations: {
-        directory: path.join(__dirname, "src", "db", "migrations"),
-      },
-      seeds: {
-        directory: path.join(__dirname, "src", "db", "seeds"),
-      }
+    pool: { min: 0, max: 5 },
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
+    },
+    seeds: {
+      directory: path.join(__dirname, "src", "db", "seeds"),
+    },
   },
 
   production: {
-    client: 'postgresql',
+    client: "postgresql",
     connection: DATABASE_URL,
-    pool: {
-      min: 0,
-      max: 5
-    },
+    pool: { min: 0, max: 5 },
     migrations: {
       directory: path.join(__dirname, "src", "db", "migrations"),
     },
@@ -44,7 +40,7 @@ module.exports = {
       directory: path.join(__dirname, "src", "db", "migrations"),
     },
     seeds: {
-      directory: path.join(__dirname, "src", "db", "seeds"), 
+      directory: path.join(__dirname, "src", "db", "seeds"),
     },
     useNullAsDefault: true,
   },
